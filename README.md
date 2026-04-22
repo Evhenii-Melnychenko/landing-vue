@@ -1,5 +1,7 @@
 # Vue Landing Page
 
+**Live Demo:** [landing-vue-seven.vercel.app](https://landing-vue-seven.vercel.app/)
+
 This project is a single-page landing website built with Vue 3, TypeScript, Vite, and Tailwind CSS.
 
 It is structured as a modular set of reusable sections and UI blocks, including:
