@@ -7,7 +7,7 @@ const activeSection = ref('hero');
 
 const navLinks = [
   { href: 'hero', label: 'Home' },
-  { href: 'about-evergreen', label: 'About' },
+  { href: 'about-our-company', label: 'About' },
   { href: 'services', label: 'Services' },
   { href: 'about', label: 'Why Choose Us' },
   { href: 'contact', label: 'Contact' },
