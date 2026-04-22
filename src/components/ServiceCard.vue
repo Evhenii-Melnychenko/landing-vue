@@ -78,7 +78,7 @@ const props = defineProps({
   }
 
   p {
-    color: #666;
+    color: var(--color-secondary);
     line-height: 1.6;
   }
 }

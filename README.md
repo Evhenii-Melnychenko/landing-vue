@@ -1,42 +1,84 @@
-# vue-project
+# Vue Landing Page
 
-The landing page was created with Vue 3 in Vite.
+This project is a single-page landing website built with Vue 3, TypeScript, Vite, and Tailwind CSS.
 
-## Recommended IDE Setup
+It is structured as a modular set of reusable sections and UI blocks, including:
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Header
+- Hero section
+- About company section
+- Services section
+- Additional about section
+- Special offers section
+- Testimonials
+- Call to action
+- Contact section
+- Footer
+- Floating action button
 
-## Recommended Browser Setup
+## Tech Stack
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Vue 3
+- TypeScript
+- Vite
+- Tailwind CSS
+- Vuelidate (`@vuelidate/core`, `@vuelidate/validators`)
 
-## Type Support for `.vue` Imports in TS
+## Getting Started
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Install dependencies:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Start the development server:
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Build the project for production:
 
 ```sh
 npm run build
 ```
+
+Preview the production build locally:
+
+```sh
+npm run preview
+```
+
+## Available Scripts
+
+- `npm run dev` starts the Vite development server.
+- `npm run build` runs type checking and creates a production build.
+- `npm run build-only` creates a production build without type checking.
+- `npm run type-check` runs Vue TypeScript checks.
+- `npm run preview` serves the built app locally for preview.
+- `npm run server` starts `json-server` on port 3000.
+
+## Project Structure
+
+```text
+src/
+  components/
+  assets/
+  main.ts
+  App.vue
+```
+
+The main page layout is assembled in `src/App.vue`, where each landing-page section is imported as a separate component.
+
+## Recommended Environment
+
+- Node.js: `^20.19.0 || >=22.12.0`
+- npm
+- VS Code with the Vue Official extension
+
+## Notes
+
+- The project uses `vue-tsc` for type checking.
+- Styling is configured with Tailwind CSS and PostCSS.
+- The app is set up with Vite for fast local development and production builds.

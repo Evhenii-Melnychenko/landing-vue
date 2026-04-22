@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <section class="about-our-company" id="about-our-company">
         <div class="container">
@@ -15,7 +11,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 .about-our-company {
   padding: 100px 0;
   background: linear-gradient(135deg, var(--color-white) 0%, #f8fff8 100%);
@@ -41,7 +36,7 @@
     position: relative;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -15px;
       left: 50%;
@@ -62,14 +57,14 @@
   background: var(--color-white);
   padding: 60px 50px;
   border-radius: 25px;
-  box-shadow: 0 20px 60px rgba(0,87,27,0.15);
-  border: 3px solid rgba(0,87,27,0.1);
+  box-shadow: 0 20px 60px rgba(0, 87, 27, 0.15);
+  border: 3px solid rgba(0, 87, 27, 0.1);
 }
 
 .about-description-main {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #333333;
+  color: var( --color-secondary);
   margin-bottom: 30px;
   text-align: justify;
 }
@@ -102,5 +97,4 @@
   font-weight: 700;
   font-size: 1.1em;
 }
-
 </style>

@@ -5,6 +5,7 @@ function scrollToSection(id) {
 
   if (target) {
     const headerHeight = header ? header.offsetHeight : 0;
+
     window.scrollTo({ top: target.offsetTop - headerHeight - 20, behavior: 'smooth' });
     window.history.replaceState({}, '', window.location.pathname + window.location.search);
   }
@@ -51,12 +52,12 @@ function scrollToSection(id) {
     background: var(--color-white);
     padding: 60px 40px;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 87, 27, 0.15);
-    border: 2px solid rgba(0, 87, 27, 0.1);
+    box-shadow: 0 20px 50px rgba(var(--color-primary), 0.15);
+    border: 2px solid rgba(var(--color-primary), 0.1);
 
     h2 {
         font-size: 2.8rem;
-        color: var( --color-primary);
+        color: var(--color-primary);
         margin-bottom: 20px;
         font-weight: 700;
     }
@@ -64,7 +65,7 @@ function scrollToSection(id) {
     p {
         font-size: 1.2rem;
         margin-bottom: 40px;
-        color: #666;
+        color: var(--color-secondary);
     }
 }
 
@@ -102,7 +103,7 @@ function scrollToSection(id) {
     font-weight: 700;
     text-decoration: none;
     border-radius: 50px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 25px rgba(var(--color-black), 0.2);
     transition: all 0.3s ease;
     animation: fadeInUp 0.8s ease-out 0.4s both;
     text-transform: uppercase;
@@ -110,9 +111,8 @@ function scrollToSection(id) {
 
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-        background: #f8f8f8;
+        box-shadow: 0 12px 35px rgba(var(--color-black), 0.3);
+        background: var(--color-white);
     }
 }
-
 </style>

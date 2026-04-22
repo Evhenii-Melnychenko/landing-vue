@@ -42,6 +42,7 @@ function scrollToSection(id) {
   if (target) {
     const headerHeight = document.getElementById('header').offsetHeight;
     const targetPosition = target.offsetTop - headerHeight - 20;
+    
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   }
 }
@@ -102,12 +103,12 @@ onUnmounted(() => {
   backdrop-filter: blur(20px);
   z-index: 1000;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(0,87,27,0.1);
+  border-bottom: 1px solid rgba(var(--color-primary), 0.1);
   transition: all 0.3s ease;
 
   &.scrolled {
     background: rgba(var(--color-white), 0.98);
-    box-shadow: 0 5px 25px rgba(0,87,27,0.1);
+    box-shadow: 0 5px 25px rgba(var(--color-primary), 0.1);
   }
 }
 
@@ -153,7 +154,7 @@ onUnmounted(() => {
 
   li {
     a {
-      color: #333333;
+      color: var( --color-secondary);
       text-decoration: none;
       font-weight: 600;
       padding: 10px 15px;
@@ -163,7 +164,7 @@ onUnmounted(() => {
 
       &:hover {
         color: var( --color-primary);
-        background: rgba(0,87,27,0.1);
+        background: rgba(var(--color-primary), 0.1);
         transform: translateY(-2px);
       }
 
@@ -219,11 +220,11 @@ onUnmounted(() => {
   width: min(85vw, 340px);
   background: rgba(var(--color-white), 0.98);
   backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(0,87,27,0.1);
-  box-shadow: -10px 0 30px rgba(0,0,0,0.12);
+  border-left: 1px solid rgba(var(--color-primary), 0.1);
+  box-shadow: -10px 0 30px rgba(var(--color-black), 0.12);
   transform: translateX(100%);
   transition: transform 0.35s ease;
-  z-index: 1200;
+  z-index: 100;
 
   &.active {
     transform: translateX(0);
@@ -281,5 +282,4 @@ onUnmounted(() => {
     font-size: 1rem;
   }
 }
-
 </style>

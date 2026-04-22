@@ -106,7 +106,7 @@ onUnmounted(() => {
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -130,12 +130,12 @@ onUnmounted(() => {
   background: var(--color-white);
   padding: 50px 40px;
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,87,27,0.15);
-  border-left: 6px solid var( --color-primary);
+  box-shadow: 0 15px 40px rgba(var(--color-primary), 0.15);
+  border-left: 6px solid var(--color-primary);
 
   h2 {
     font-size: 2.5rem;
-    color: var( --color-primary);
+    color: var(--color-primary);
     margin-bottom: 30px;
     font-weight: 700;
   }
@@ -144,14 +144,14 @@ onUnmounted(() => {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 30px;
-    color: #555;
+    color: var(--color-secondary);
   }
 }
 
 .about-description {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var( --color-primary);
+  color: var(--color-primary);
   margin-bottom: 25px;
   padding: 20px;
   background: linear-gradient(
@@ -160,11 +160,11 @@ onUnmounted(() => {
     rgba(0,123,36,0.08) 100%
   );
   border-radius: 10px;
-  border-left: 4px solid var( --color-primary);
+  border-left: 4px solid var(--color-primary);
 }
 
 .highlight {
-  background: linear-gradient(120deg, var( --color-primary) 0%, var( --color-primary-light) 100%);
+  background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   color: var(--color-white);
   padding: 4px 10px;
   border-radius: 6px;
@@ -181,10 +181,12 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 15px;
   }
 
   span {
     text-wrap: balance;
+    text-align: right;
   }
 }
 
@@ -198,19 +200,19 @@ onUnmounted(() => {
 .stat-card {
   text-align: center;
   padding: 30px 20px;
-  background: #f8f9fa;
+  background: var(--color-white);
   border-radius: 10px;
 
   .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var( --color-primary);
+    color: var(--color-primary);
     display: block;
   }
 
   .stat-label {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-secondary);
     margin-top: 5px;
   }
 }
@@ -231,5 +233,4 @@ onUnmounted(() => {
     }
   }
 }
-  
 </style>

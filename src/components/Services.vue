@@ -73,7 +73,7 @@ const services = [
     position: relative;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -111,6 +111,5 @@ const services = [
     .services-grid {
         grid-template-columns: 1fr;
     }
-}
-        
+}       
 </style>

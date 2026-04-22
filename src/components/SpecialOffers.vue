@@ -38,11 +38,11 @@ function scrollToSection(id) {
                 <h2>Special Offers</h2>
                 <div class="offers-grid">
                     <SpecialOfferCard
-                        v-for="offer in offers"
-                        :key="offer.title"
-                        :icon-class="offer.iconClass"
-                        :title="offer.title"
-                        :description="offer.description"
+                      v-for="offer in offers"
+                      :key="offer.title"
+                      :icon-class="offer.iconClass"
+                      :title="offer.title"
+                      :description="offer.description"
                     />
                 </div>
                 <a href="#contact" class="claim-offer-btn" @click.prevent="scrollToSection('contact')">Call to us</a>
@@ -53,7 +53,7 @@ function scrollToSection(id) {
 
 <style lang="scss" scoped>
 .special-offers {
-  background: linear-gradient(135deg, var( --color-primary) 0%, var( --color-primary-light) 100%);
+  background: linear-gradient(135deg, #f0f9f0 0%, #e8f8e8 50%, var(--color-white) 100%);
   padding: 80px 0;
   color: var(--color-white);
   position: relative;
@@ -73,10 +73,11 @@ function scrollToSection(id) {
   }
 
   h2 {
+    color: var(--color-primary);
     font-size: 2.8rem;
     margin-bottom: 50px;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(var(--color-black), 0.3);
   }
 }
 
@@ -94,8 +95,8 @@ function scrollToSection(id) {
 }
 
 .claim-offer-btn {
-  background: var(--color-white);
-  color: var( --color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
   padding: 18px 40px;
   font-size: 1.2rem;
   font-weight: 700;
@@ -103,24 +104,24 @@ function scrollToSection(id) {
   border-radius: 50px;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(var(--color-black), 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-    background: #f8f8f8;
+    box-shadow: 0 12px 35px rgba(var(--color-black), 0.3);
+    background: var(--color-primary-light);
   }
 }
 
 @keyframes float {
     0% {
-        transform: translateX(0) translateY(0);
+      transform: translateX(0) translateY(0);
     }
 
     100% { 
-        transform: translateX(-80px) translateY(-80px); 
+      transform: translateX(-80px) translateY(-80px); 
     }
 }
 </style>

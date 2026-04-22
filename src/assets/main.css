@@ -1,7 +1,10 @@
 :root {
     --color-white: #fff;
+    --color-black: #000;
     --color-primary: #00571B;
     --color-primary-light: #007B24;
+    --color-secondary: #333333;
+    --color-error: #FF4C4C;
 }
 
 * {
@@ -13,7 +16,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333333;
+    color: var(--color-secondary);
     background: var(--color-white);
     padding-top: 80px;
 }

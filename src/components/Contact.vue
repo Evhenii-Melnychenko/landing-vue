@@ -1,5 +1,61 @@
 <script setup>
+import { reactive, computed } from 'vue';
+import { useVuelidate } from '@vuelidate/core' 
+import { required, minLength, email, helpers } from '@vuelidate/validators';
 
+const form = reactive({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    service: '',
+    message: '',
+});
+
+// const containsUser = helpers.withMessage(
+//     'The input must contain "user"',
+//     (value) => value && value.includes('user')
+// );
+
+const rules = computed(() => {
+    return {
+        firstName: {
+            required,
+            minLength: minLength(2),
+            // containsUser: containsUser
+        },
+        lastName: { 
+            required, minLength: minLength(2) 
+        },
+        phone: {
+            required
+        },
+        email: { 
+            required,
+            email 
+        },
+        service: { 
+            required
+        },
+        message: { 
+            required,
+            minLength: minLength(10)
+        }
+    }
+});
+
+const v$ = useVuelidate(rules, form);
+
+const submitForm = async () => {
+    const result = await v$.value.$validate();
+    if (result) {
+        // Form is valid, proceed with submission logic
+        console.log('Form submitted:', form);
+    } else {
+        // Form is invalid, errors will be displayed
+        console.log('Form validation failed');
+    }
+};
 </script>
 
 <template>
@@ -14,32 +70,37 @@
                 <div class="contact-main">
                     <div class="contact-form">
                         <h3>Form title</h3>
-                        <form>
+                        <form @submit.prevent="submitForm">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="firstName">First Name *</label>
-                                    <input type="text" id="firstName" name="firstName" required>
+                                    <input type="text" id="firstName" name="firstName" placeholder="First Name" v-model="form.firstName">
+                                    <span class="error-message" v-for="error in v$.firstName.$errors" :key="error.$uid">{{ error.$message }}</span>
                                 </div>
+                            
                                 <div class="form-group">
                                     <label for="lastName">Last Name *</label>
-                                    <input type="text" id="lastName" name="lastName" required>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" v-model="form.lastName">
+                                    <span class="error-message" v-for="error in v$.lastName.$errors" :key="error.$uid">{{ error.$message }}</span>
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="phone">Phone Number *</label>
-                                    <input type="tel" id="phone" name="phone" required>
+                                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" v-model="form.phone">
+                                    <span class="error-message" v-for="error in v$.phone.$errors" :key="error.$uid">{{ error.$message }}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" required>
+                                    <input type="email" id="email" name="email" placeholder="Email Address" v-model="form.email">
+                                    <span class="error-message" v-for="error in v$.email.$errors" :key="error.$uid">{{ error.$message }}</span>
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="service">Topic</label>
-                                <select id="service" name="service">
+                                <select id="service" name="service" v-model="form.service">
                                     <option value="">Select a Topic</option>
                                     <option value="option1">Option 1</option>
                                     <option value="option2">Option 2</option>
@@ -49,11 +110,14 @@
                                     <option value="option6">Option 6</option>
                                     <option value="other">Other</option>
                                 </select>
+                                <span class="error-message" v-for="error in v$.service.$errors" :key="error.$uid">{{ error.$message }}</span>
+                           
                             </div>
                             
                             <div class="form-group">
                                 <label for="message">Your Message</label>
-                                <textarea id="message" name="message" placeholder="Enter your message here..."></textarea>
+                                <textarea id="message" name="message" placeholder="Enter your message here..." v-model="form.message"></textarea>
+                                <span class="error-message" v-for="error in v$.message.$errors" :key="error.$uid">{{ error.$message }}</span>
                             </div>
                             
                             <button type="submit" class="submit-btn">Send</button>
@@ -92,14 +156,13 @@
 </template>
 
 <style lang="scss" scoped>
-
 .contact {
     background: var(--color-white);
     padding: 100px 0;
     position: relative;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -108,63 +171,122 @@
         background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(0,87,27,0.05)"/><circle cx="80" cy="80" r="1" fill="rgba(0,87,27,0.05)"/></svg>') repeat;
         opacity: 0.6;
     }
-}
-        
-.contact-wrapper {
-    position: relative;
-    z-index: 2;
-}
-        
-.contact-header {
-    text-align: center;
-    margin-bottom: 60px;
 
-    h2 {
-        font-size: 3rem;
+    &-wrapper {
+        position: relative;
+        z-index: 2;
+    }
+
+    &-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &-form {
+        background: var(--color-white);
+        padding: 50px 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,87,27,0.1);
+        border: 2px solid rgba(0,87,27,0.08);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 20px 20px 0 0;
+        }
+    }
+
+    &-header {
+        text-align: center;
+        margin-bottom: 60px;
+
+        h2 {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: var(--color-secondary);
+            opacity: 0.9;
+        }
+    }
+
+    &-info {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &-item {
+        background: var(--color-white);
+        padding: 35px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,87,27,0.1);
+        border-left: 5px solid var(--color-primary);
+        transition: all 0.3s ease;
+        text-align: center;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,87,27,0.15);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+   
+        p {
+            color: var(--color-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    }
+
+    &-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    a {
         color: var( --color-primary);
-        margin-bottom: 20px;
-        font-weight: 700;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+    &:hover {
+        color: var( --color-primary-light);
+        text-decoration: underline;
+    }
     }
 
-    .contact-header p {
-        font-size: 1.3rem;
-        color: #333333;
-        opacity: 0.9;
+    .error-message {
+        color: var(--color-error);
+        font-size: 0.9rem;
+        margin-top: 5px;
+        display: block;
     }
 }
-
-.contact-main {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-form {
-    background: var(--color-white);
-    padding: 50px 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,87,27,0.1);
-    border: 2px solid rgba(0,87,27,0.08);
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 6px;
-        background: linear-gradient(90deg, var( --color-primary), var( --color-primary-light));
-        border-radius: 20px 20px 0 0;
-    }
-}
-        
+               
 .contact-form h3 {
     font-size: 2rem;
-    color: var( --color-primary);
+    color: var(--color-primary);
     margin-bottom: 30px;
     font-weight: 700;
     text-align: center;
@@ -184,7 +306,7 @@
 .form-group label {
     display: block;
     font-weight: 600;
-    color: var( --color-primary);
+    color: var(--color-primary);
     margin-bottom: 8px;
     font-size: 1rem;
 }
@@ -194,7 +316,7 @@
 .form-group textarea {
     width: 100%;
     padding: 15px 20px;
-    border: 2px solid #e1e5e9;
+    border: 2px solid var(--color-primary);
     border-radius: 12px;
     font-size: 1rem;
     color: #333333;
@@ -204,13 +326,13 @@
 
     &:focus {
         outline: none;
-        border-color: var( --color-primary);
-        box-shadow: 0 0 0 3px rgba(0, 87, 27, 0.1);
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.1);
         transform: translateY(-2px);
     }
 
     &:hover {
-        border-color: var( --color-primary);
+        border-color: var(--color-primary);
     }
 }
 
@@ -231,7 +353,7 @@
 .submit-btn {
     width: 100%;
     padding: 18px 25px;
-    background: linear-gradient(135deg, var( --color-primary) 0%, var( --color-primary-light) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
     color: var(--color-white);
     border: none;
     border-radius: 50px;
@@ -241,12 +363,12 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0,87,27,0.2);
+    box-shadow: 0 8px 25px rgba(var(--color-primary),0.2);
 
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(0,87,27,0.3);
-        background: linear-gradient(135deg, var( --color-primary-light) 0%, var( --color-primary) 100%);
+        box-shadow: 0 12px 35px rgba(var(--color-primary),0.3);
+        background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
     }
 
     &:active {
@@ -254,58 +376,6 @@
     }
 }
   
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.contact-item {
-    background: var(--color-white);
-    padding: 35px 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,87,27,0.1);
-    border-left: 5px solid var( --color-primary);
-    transition: all 0.3s ease;
-    text-align: center;
-
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0,87,27,0.15);
-    }
-}
-        
-.contact-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.contact-item h3 {
-    font-size: 1.3rem;
-    color: var( --color-primary);
-    margin-bottom: 12px;
-    font-weight: 700;
-}
-        
-.contact-item p {
-    color: #333333;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.contact-item a {
-    color: var( --color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.contact-item a:hover {
-    color: var( --color-primary-light);
-    text-decoration: underline;
-}
-
 @media (max-width: 968px) {  
     .contact-main {
         grid-template-columns: 1fr;
@@ -331,5 +401,4 @@
         font-size: 1.6rem;
     }
 }
-
 </style>

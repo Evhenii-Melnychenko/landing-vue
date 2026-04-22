@@ -27,18 +27,18 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .offer-card {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--color-primary);
   backdrop-filter: blur(10px);
   padding: 40px 30px;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(var(--color-white), 0.2);
   transition: all 0.3s ease;
   position: relative;
 
   &:hover {
     transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: var(--color-primary-light);
+    box-shadow: 0 20px 40px rgba(var(--color-black), 0.3);
   }
 
   h3 {
