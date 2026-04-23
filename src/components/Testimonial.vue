@@ -18,9 +18,8 @@
 <style lang="scss" scoped>
 
 .testimonial {
-    background: linear-gradient(135deg, var( --color-primary) 0%, var( --color-primary-light) 100%);
+    background: var(--color-white);
     padding: 80px 0;
-    color: var(--color-white);
     text-align: center;
 
     &::before {
@@ -35,6 +34,12 @@
     &-content {
         max-width: 800px;
         margin: 0 auto;
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+        color: var(--color-secondary);
+        padding: 36px 32px;
+        border-radius: 20px;
+        border: 1px solid rgba(var(--color-primary-rgb), 0.22);
+        box-shadow: 0 20px 50px rgba(var(--color-black-rgb), 0.2);
     }
 
     &-text {
@@ -43,10 +48,13 @@
         line-height: 1.8;
         margin-bottom: 30px;
         position: relative;
+        color: var(--color-white);
     }
     
     &-author {
         font-size: 1.1rem;
+        color: var(--color-white);
+        font-weight: 600;
     }
 }
 

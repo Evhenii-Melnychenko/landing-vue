@@ -30,7 +30,7 @@ function scrollToSection(id) {
 
 <style lang="scss" scoped>
 .hero {
-  background: linear-gradient(135deg, var( --color-primary) 0%, var( --color-primary-light) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   color: var(--color-white);
   padding: 80px 0;
   text-align: center;

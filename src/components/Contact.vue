@@ -210,7 +210,7 @@
 
     .contact-header p {
         font-size: 1.3rem;
-        color: #333333;
+        color: var(--color-secondary);
         opacity: 0.9;
     }
 }
@@ -224,7 +224,7 @@
 }
 
 .contact-form {
-    background: var(--color-white);
+    background: var(--color-surface);
     padding: 50px 40px;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0,87,27,0.1);
@@ -246,7 +246,7 @@
         
 .contact-form h3 {
     font-size: 2rem;
-    color: var( --color-primary);
+    color: var(--color-primary);
     margin-bottom: 30px;
     font-weight: 700;
     text-align: center;
@@ -358,7 +358,7 @@
 }
 
 .contact-item {
-    background: var(--color-white);
+    background: var(--color-surface);
     padding: 35px 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,87,27,0.1);
@@ -376,6 +376,10 @@
     font-size: 2.5rem;
     margin-bottom: 15px;
     display: block;
+
+    .pi::before {
+        color: var(--color-primary);
+    }
 }
 
 .contact-item h3 {

@@ -1,20 +1,32 @@
 # Vue Landing Page
 
-**Live Demo:** [landing-vue-seven.vercel.app](https://landing-vue-seven.vercel.app/)
+Single-page landing website built with Vue 3, TypeScript, and Vite.
 
-This project is a single-page landing website built with Vue 3, TypeScript, and Vite.
+Live demo: [landing-vue-seven.vercel.app](https://landing-vue-seven.vercel.app/)
 
-The page is split into reusable Vue sections and UI blocks:
+## Features
+
+- Component-based page structure (header, hero, services, contact, etc.)
+- Multilingual UI with Vue I18n (Polish and English)
+- Header language switcher (PL / EN)
+- Light and dark theme switcher with icon toggle
+- Theme persistence in localStorage
+- Initial theme detection from system preference (`prefers-color-scheme`)
+- Contact form validation with Vuelidate
+- SCSS component styles + global CSS design tokens
+- PrimeIcons integration
+
+## Page Sections
 
 - Header
-- Hero section
-- About company section
-- Services section
-- Why choose us section
-- Special offers section
+- Hero
+- About company
+- Services
+- Why choose us
+- Special offers
 - Testimonials
 - Call to action
-- Contact section
+- Contact
 - Footer
 - Floating action button
 
@@ -24,9 +36,11 @@ The page is split into reusable Vue sections and UI blocks:
 - TypeScript
 - Vite
 - Vue I18n
+- Vuelidate (`@vuelidate/core`, `@vuelidate/validators`)
 - Sass (SCSS in component styles)
 - PrimeIcons
-- Vuelidate (`@vuelidate/core`, `@vuelidate/validators`)
+- PostCSS
+- Tailwind CSS (installed in tooling)
 
 ## Getting Started
 
@@ -36,80 +50,81 @@ Install dependencies:
 npm install
 ```
 
-Start the development server:
+Run development server:
 
 ```sh
 npm run dev
 ```
 
-Build the project for production:
+Build for production (with type checking):
 
 ```sh
 npm run build
 ```
 
-Preview the production build locally:
+Preview production build:
 
 ```sh
 npm run preview
 ```
 
-## Localization (i18n)
-
-- Locales are defined in `src/i18n/en.json` and `src/i18n/pl.json`.
-- I18n bootstrap is configured in `src/i18n/index.ts` and initialized in `src/main.ts`.
-- Language is switched from the header language switcher (`PL` / `EN`).
-- Current default locale is `pl`.
-
-Translated sections currently include:
-
-- Header navigation
-- Hero
-- About company
-- Why choose us
-- Services
-- Special offers
-- Testimonials
-- Call to action
-- Contact
-- Footer
-
 ## Available Scripts
 
-- `npm run dev` starts the Vite development server.
-- `npm run build` runs type checking and creates a production build.
-- `npm run build-only` creates a production build without type checking.
-- `npm run type-check` runs Vue TypeScript checks.
-- `npm run preview` serves the built app locally for preview.
+- `npm run dev` - start Vite dev server
+- `npm run build` - type check + production build
+- `npm run build-only` - production build only
+- `npm run type-check` - run `vue-tsc`
+- `npm run preview` - preview built app
+
+## Localization (i18n)
+
+- Locale messages are in `src/i18n/en.json` and `src/i18n/pl.json`
+- I18n setup is in `src/i18n/index.ts`
+- Default locale is `pl`
+- UI locale is switched from header buttons (`PL` / `EN`)
+
+## Theme System
+
+- Global color tokens are defined in `src/assets/main.css`
+- Theme is controlled via `data-theme` on the root HTML element
+- Dark theme palette is defined under `:root[data-theme='dark']`
+- Current theme is stored in browser localStorage
+
+## Form Validation
+
+- Contact form uses Vuelidate for client-side validation
+- Required fields: first name, last name, phone, email
+- Email format and minimum lengths are validated
+- Validation messages are translated via Vue I18n
 
 ## Project Structure
 
 ```text
 src/
-  components/
   assets/
-  main.ts
+    main.css
+  components/
+    Header.vue
+    Hero.vue
+    AboutCompany.vue
+    Services.vue
+    About.vue
+    SpecialOffers.vue
+    Testimonial.vue
+    Cta.vue
+    Contact.vue
+    Footer.vue
+    FloatingButton.vue
+  i18n/
+    index.ts
+    en.json
+    pl.json
   App.vue
+  main.ts
 ```
 
-The main page layout is assembled in `src/App.vue`, where each landing-page section is imported as a separate component.
-
-## Styling Notes
-
-- Global design tokens are stored in `src/assets/main.css` under `:root`.
-- Use `var(--color-...)` for direct color usage.
-- For alpha colors, use RGB-channel variables with `rgba(var(--color-...-rgb), alpha)`.
-  - Example: `rgba(var(--color-primary-rgb), 0.15)`
-
-## Recommended Environment
+## Environment
 
 - Node.js: `^20.19.0 || >=22.12.0`
 - npm
-- VS Code with the Vue Official extension
-
-## Notes
-
-- The project uses `vue-tsc` for type checking.
-- Styling is configured with SCSS, PostCSS, and global CSS variables.
-- The contact form uses Vuelidate for client-side validation; successful submit currently shows a temporary alert placeholder.
-- The app is set up with Vite for fast local development and production builds.
+- VS Code + Vue Official extension (recommended)

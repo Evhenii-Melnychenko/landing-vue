@@ -26,17 +26,7 @@ const features = [
     id: 'third',
     titleKey: 'whyChooseUs.features.third.title',
     descriptionKey: 'whyChooseUs.features.third.description',
-  },
-  {
-    id: 'fourth',
-    titleKey: 'whyChooseUs.features.fourth.title',
-    descriptionKey: 'whyChooseUs.features.fourth.description',
-  },
-  {
-    id: 'fifth',
-    titleKey: 'whyChooseUs.features.fifth.title',
-    descriptionKey: 'whyChooseUs.features.fifth.description',
-  },
+  }
 ];
 
 const counters = ref(stats.map(() => 0));
@@ -110,10 +100,9 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-
 .about {
   padding: 100px 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+  background: var(--color-white);
   position: relative;
 
   &::before {
@@ -138,7 +127,7 @@ onUnmounted(() => {
 }
 
 .about-text {
-  background: var(--color-white);
+  background: var(--color-surface);
   padding: 50px 40px;
   border-radius: 20px;
   box-shadow: 0 15px 40px rgba(var(--color-primary-rgb), 0.15);
@@ -211,7 +200,7 @@ onUnmounted(() => {
 .stat-card {
   text-align: center;
   padding: 30px 20px;
-  background: var(--color-white);
+  background: var(--color-surface);
   border-radius: 10px;
 
   .stat-number {

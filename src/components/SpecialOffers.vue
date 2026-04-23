@@ -59,7 +59,7 @@ function scrollToSection(id) {
 
 <style lang="scss" scoped>
 .special-offers {
-  background: linear-gradient(135deg, #f0f9f0 0%, #e8f8e8 50%, var(--color-white) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   padding: 80px 0;
   color: var(--color-white);
   position: relative;

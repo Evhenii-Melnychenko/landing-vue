@@ -78,7 +78,7 @@ const services = [
 <style  lang="scss" scoped>
 .services {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f0f9f0 0%, #7a98eb 50%, var(--color-white) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
     position: relative;
 
     &::before {
@@ -96,7 +96,7 @@ const services = [
 .section-title {
     text-align: center;
     font-size: 2.8rem;
-    color: var( --color-primary);
+    color: var(--color-primary);
     margin-bottom: 3rem;
     font-weight: 700;
     position: relative;

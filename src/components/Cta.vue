@@ -33,7 +33,7 @@ function scrollToSection(id) {
 
 <style lang="scss" scoped>
  .cta-section {
-    background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
     padding: 100px 0;
     text-align: center;
     position: relative;
@@ -53,7 +53,7 @@ function scrollToSection(id) {
 .cta-content {
     position: relative;
     z-index: 2;
-    background: var(--color-white);
+    background: var(--color-surface);
     padding: 60px 40px;
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(var(--color-primary-rgb), 0.15);
@@ -92,7 +92,7 @@ function scrollToSection(id) {
     transition: all 0.3s ease;
 
     &:hover {
-        background: var( --color-primary);
+        background: var(--color-primary);
         color: var(--color-white);
         transform: translateY(-2px);
     }
@@ -100,7 +100,7 @@ function scrollToSection(id) {
 
 .cta-primary {
     display: inline-block;
-    background: var(--color-white);
+    background: var(--color-surface);
     color: var( --color-primary);
     padding: 18px 40px;
     font-size: 1.2rem;
@@ -116,7 +116,7 @@ function scrollToSection(id) {
     &:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 35px rgba(var(--color-black-rgb), 0.3);
-        background: var(--color-white);
+        background: var(--color-surface);
     }
 }
 </style>

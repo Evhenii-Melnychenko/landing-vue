@@ -6,6 +6,10 @@
             "services": "Services",
             "whyChooseUs": "Why Choose Us",
             "contact": "Contact"
+        },
+        "theme": {
+            "light": "Light",
+            "dark": "Dark"
         }
     },
     "hero": {
@@ -34,14 +38,6 @@
             "third": {
                 "title": "Flexible approach:",
                 "description": "We adapt our services to each project instead of forcing a generic package."
-            },
-            "fourth": {
-                "title": "Quality and precision:",
-                "description": "We pay attention to details that affect durability, safety, and final results."
-            },
-            "fifth": {
-                "title": "Customer-first support:",
-                "description": "Our team stays available before, during, and after delivery."
             }
         },
         "stats": {

@@ -6,6 +6,10 @@
             "services": "Usługi",
             "whyChooseUs": "Dlaczego my",
             "contact": "Kontakt"
+        },
+        "theme": {
+            "light": "Jasna",
+            "dark": "Ciemna"
         }
     },
     "hero": {
@@ -34,14 +38,6 @@
             "third": {
                 "title": "Elastyczne podejście:",
                 "description": "Dopasowujemy usługi do projektu zamiast narzucać jeden schemat działania."
-            },
-            "fourth": {
-                "title": "Jakość i precyzja:",
-                "description": "Dbamy o szczegóły, które wpływają na trwałość, bezpieczeństwo i efekt końcowy."
-            },
-            "fifth": {
-                "title": "Wsparcie skoncentrowane na kliencie:",
-                "description": "Nasz zespół pozostaje dostępny przed realizacją, w jej trakcie i po zakończeniu prac."
             }
         },
         "stats": {

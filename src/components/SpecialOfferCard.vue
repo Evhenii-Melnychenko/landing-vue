@@ -27,17 +27,16 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .offer-card {
-  background: var(--color-primary);
+  background: var(--color-surface);
   backdrop-filter: blur(10px);
   padding: 40px 30px;
   border-radius: 20px;
-  border: 1px solid rgba(var(--color-white-rgb), 0.2);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
   transition: all 0.3s ease;
   position: relative;
 
   &:hover {
     transform: translateY(-10px);
-    background: var(--color-primary-light);
     box-shadow: 0 20px 40px rgba(var(--color-black-rgb), 0.3);
   }
 
@@ -45,12 +44,14 @@ const props = defineProps({
     font-size: 1.4rem;
     margin-bottom: 15px;
     font-weight: 600;
+    color: var(--color-primary);
   }
 
   p {
     font-style: italic;
     opacity: 0.95;
     line-height: 1.6;
+    color: var(--color-secondary);
   }
 }
 
@@ -58,5 +59,6 @@ const props = defineProps({
   font-size: 3rem;
   margin-bottom: 20px;
   display: block;
+  color: var(--color-primary);
 }
 </style>

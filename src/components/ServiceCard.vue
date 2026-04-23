@@ -40,7 +40,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .service-card {
-  background: var(--color-white);
+  background: var(--color-surface);
   padding: 40px 30px;
   border-radius: 20px;
   text-align: center;

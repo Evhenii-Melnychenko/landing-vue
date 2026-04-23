@@ -5,20 +5,46 @@ import { useI18n } from 'vue-i18n';
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 const activeSection = ref('hero');
+const currentTheme = ref('light');
 
 const { locale, t } = useI18n({ useScope: 'global' });
 const currentLocale = computed(() => locale.value);
 
 const navLinks = [
-  { href: 'hero', labelKey: 'header.nav.home' },
-  { href: 'about-our-company', labelKey: 'header.nav.aboutCompany' },
-  { href: 'services', labelKey: 'header.nav.services' },
-  { href: 'about', labelKey: 'header.nav.whyChooseUs' },
-  { href: 'contact', labelKey: 'header.nav.contact' },
+  { 
+    href: 'hero',
+    labelKey: 'header.nav.home' 
+  },
+  { 
+    href: 'about-our-company',
+    labelKey: 'header.nav.aboutCompany' 
+  },
+  { 
+    href: 'services',
+    labelKey: 'header.nav.services' 
+  },
+  { 
+    href: 'about',
+    labelKey: 'header.nav.whyChooseUs' 
+  },
+  { 
+    href: 'contact',
+    labelKey: 'header.nav.contact' 
+  },
 ];
 
 function setLocale(lang) {
   locale.value = lang;
+}
+
+function applyTheme(theme) {
+  currentTheme.value = theme;
+  document.documentElement.setAttribute('data-theme', theme);
+  window.localStorage.setItem('theme', theme);
+}
+
+function toggleTheme() {
+  applyTheme(currentTheme.value === 'light' ? 'dark' : 'light');
 }
 
 function toggleMobileMenu() {
@@ -56,6 +82,10 @@ function scrollToSection(id) {
 }
 
 onMounted(() => {
+  const storedTheme = window.localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(storedTheme || (systemPrefersDark ? 'dark' : 'light'));
+
   window.addEventListener('scroll', handleScroll);
 });
 
@@ -82,16 +112,25 @@ onUnmounted(() => {
               </ul>
           </nav>
 
-            <div class="mobile-menu-toggle" :class="{ active: isMobileMenuOpen }" @click="toggleMobileMenu">
-              <span></span>
-              <span></span>
-              <span></span>
+          <div class="mobile-menu-toggle" :class="{ active: isMobileMenuOpen }" @click="toggleMobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
 
           <div class="language-switcher" aria-label="Language switcher">
             <button type="button" :class="{ active: currentLocale === 'pl' }" @click="setLocale('pl')">PL</button>
             <button type="button" :class="{ active: currentLocale === 'en' }" @click="setLocale('en')">EN</button>
           </div>
+
+          <button
+            type="button"
+            class="theme-switcher"
+            :aria-label="currentTheme === 'light' ? t('header.theme.dark') : t('header.theme.light')"
+            @click="toggleTheme"
+          >
+            <i :class="currentTheme === 'light' ? 'pi pi-moon' : 'pi pi-sun'"></i>
+          </button>
 
           <div class="mobile-menu" :class="{ active: isMobileMenuOpen }">
               <ul class="nav">
@@ -195,8 +234,8 @@ onUnmounted(() => {
   gap: 6px;
   padding: 4px;
   border-radius: 999px;
-  border: 1px solid rgba(0,87,27,0.22);
-  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
+  background: rgba(var(--color-white-rgb), 0.85);
 
   button {
     border: 0;
@@ -215,6 +254,31 @@ onUnmounted(() => {
       color: var(--color-white);
       box-shadow: 0 4px 12px rgba(0,87,27,0.25);
     }
+  }
+}
+
+.theme-switcher {
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
+  border-radius: 999px;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(var(--color-white-rgb), 0.85);
+  color: var(--color-primary);
+  transition: all 0.25s ease;
+
+  i {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  &:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.25);
   }
 }
 
@@ -313,6 +377,10 @@ onUnmounted(() => {
   .language-switcher {
     margin-left: auto;
     margin-right: 8px;
+  }
+
+  .theme-switcher {
+    margin-right: 60px;
   }
   
   .hero h1 {

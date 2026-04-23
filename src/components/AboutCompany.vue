@@ -65,7 +65,7 @@
   z-index: 2;
   max-width: 900px;
   margin: 0 auto;
-  background: var(--color-white);
+  background: var(--color-surface);
   padding: 60px 50px;
   border-radius: 25px;
   box-shadow: 0 20px 60px rgba(0,87,27,0.15);
@@ -75,7 +75,7 @@
 .about-description-main {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #333333;
+  color: var(--color-secondary);
   margin-bottom: 30px;
   text-align: justify;
 }
@@ -83,7 +83,7 @@
 .about-description-secondary {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #555;
+  color: var(--color-secondary);
   text-align: justify;
   padding: 25px;
   background: linear-gradient(
