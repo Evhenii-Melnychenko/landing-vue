@@ -79,7 +79,7 @@ function scrollToSection(id) {
   }
 
   h2 {
-    color: var(--color-primary);
+    color: var(--color-white);
     font-size: 2.8rem;
     margin-bottom: 50px;
     font-weight: 700;

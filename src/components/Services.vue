@@ -96,7 +96,7 @@ const services = [
 .section-title {
     text-align: center;
     font-size: 2.8rem;
-    color: var(--color-primary);
+    color: var(--color-white);
     margin-bottom: 3rem;
     font-weight: 700;
     position: relative;
