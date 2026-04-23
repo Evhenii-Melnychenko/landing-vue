@@ -1,21 +1,27 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
 import SpecialOfferCard from './SpecialOfferCard.vue';
+
+const { t } = useI18n({ useScope: 'global' });
 
 const offers = [
   {
+    id: 'first',
     iconClass: 'pi pi-lightbulb',
-    title: 'Special Offers Title first',
-    description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur adipisci corrupti quo, eos fuga omnis?',
+    titleKey: 'specialOffers.items.first.title',
+    descriptionKey: 'specialOffers.items.first.description',
   },
   {
+    id: 'second',
     iconClass: 'pi pi-lightbulb',
-    title: 'Special Offers Title second',
-    description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur adipisci corrupti quo, eos fuga omnis?',
+    titleKey: 'specialOffers.items.second.title',
+    descriptionKey: 'specialOffers.items.second.description',
   },
   {
+    id: 'third',
     iconClass: 'pi pi-lightbulb',
-    title: 'Special Offers Title third',
-    description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur adipisci corrupti quo, eos fuga omnis?',
+    titleKey: 'specialOffers.items.third.title',
+    descriptionKey: 'specialOffers.items.third.description',
   },
 ];
 
@@ -33,22 +39,22 @@ function scrollToSection(id) {
 
 <template>
   <section class="special-offers">
-        <div class="container">
-            <div class="special-offers-content">
-                <h2>Special Offers</h2>
-                <div class="offers-grid">
-                    <SpecialOfferCard
-                      v-for="offer in offers"
-                      :key="offer.title"
-                      :icon-class="offer.iconClass"
-                      :title="offer.title"
-                      :description="offer.description"
-                    />
-                </div>
-                <a href="#contact" class="claim-offer-btn" @click.prevent="scrollToSection('contact')">Call to us</a>
-            </div>
+    <div class="container">
+      <div class="special-offers-content">
+          <h2>{{ t('specialOffers.title') }}</h2>
+          <div class="offers-grid">
+              <SpecialOfferCard
+                v-for="offer in offers"
+                :key="offer.id"
+                :icon-class="offer.iconClass"
+                :title="t(offer.titleKey)"
+                :description="t(offer.descriptionKey)"
+              />
+          </div>
+          <a href="#contact" class="claim-offer-btn" @click.prevent="scrollToSection('contact')">{{ t('specialOffers.cta') }}</a>
         </div>
-    </section>
+      </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -60,7 +66,7 @@ function scrollToSection(id) {
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -77,14 +83,14 @@ function scrollToSection(id) {
     font-size: 2.8rem;
     margin-bottom: 50px;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(var(--color-black), 0.3);
+    text-shadow: 2px 2px 4px rgba(var(--color-black-rgb), 0.3);
   }
-}
 
-.special-offers-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
+  &-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
 }
 
 .offers-grid {
@@ -104,24 +110,24 @@ function scrollToSection(id) {
   border-radius: 50px;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(var(--color-black), 0.2);
+  box-shadow: 0 8px 25px rgba(var(--color-black-rgb), 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(var(--color-black), 0.3);
+    box-shadow: 0 12px 35px rgba(var(--color-black-rgb), 0.3);
     background: var(--color-primary-light);
   }
 }
 
 @keyframes float {
-    0% {
-      transform: translateX(0) translateY(0);
-    }
+  0% {
+    transform: translateX(0) translateY(0);
+  }
 
-    100% { 
-      transform: translateX(-80px) translateY(-80px); 
-    }
+  100% { 
+    transform: translateX(-80px) translateY(-80px); 
+  }
 }
 </style>

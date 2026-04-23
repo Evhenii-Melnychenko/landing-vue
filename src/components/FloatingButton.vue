@@ -19,7 +19,7 @@
     justify-content: center;
     font-size: 1.5rem;
     text-decoration: none;
-    box-shadow: 0 8px 25px rgba(var(--color-primary), 0.3);
+    box-shadow: 0 8px 25px rgba(var(--color-primary-rgb), 0.3);
     transition: all 0.3s ease;
     z-index: 10;
 

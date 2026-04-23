@@ -2,15 +2,15 @@
 
 **Live Demo:** [landing-vue-seven.vercel.app](https://landing-vue-seven.vercel.app/)
 
-This project is a single-page landing website built with Vue 3, TypeScript, Vite, and Tailwind CSS.
+This project is a single-page landing website built with Vue 3, TypeScript, and Vite.
 
-It is structured as a modular set of reusable sections and UI blocks, including:
+The page is split into reusable Vue sections and UI blocks:
 
 - Header
 - Hero section
 - About company section
 - Services section
-- Additional about section
+- Why choose us section
 - Special offers section
 - Testimonials
 - Call to action
@@ -23,7 +23,9 @@ It is structured as a modular set of reusable sections and UI blocks, including:
 - Vue 3
 - TypeScript
 - Vite
-- Tailwind CSS
+- Vue I18n
+- Sass (SCSS in component styles)
+- PrimeIcons
 - Vuelidate (`@vuelidate/core`, `@vuelidate/validators`)
 
 ## Getting Started
@@ -52,6 +54,26 @@ Preview the production build locally:
 npm run preview
 ```
 
+## Localization (i18n)
+
+- Locales are defined in `src/i18n/en.json` and `src/i18n/pl.json`.
+- I18n bootstrap is configured in `src/i18n/index.ts` and initialized in `src/main.ts`.
+- Language is switched from the header language switcher (`PL` / `EN`).
+- Current default locale is `pl`.
+
+Translated sections currently include:
+
+- Header navigation
+- Hero
+- About company
+- Why choose us
+- Services
+- Special offers
+- Testimonials
+- Call to action
+- Contact
+- Footer
+
 ## Available Scripts
 
 - `npm run dev` starts the Vite development server.
@@ -59,7 +81,6 @@ npm run preview
 - `npm run build-only` creates a production build without type checking.
 - `npm run type-check` runs Vue TypeScript checks.
 - `npm run preview` serves the built app locally for preview.
-- `npm run server` starts `json-server` on port 3000.
 
 ## Project Structure
 
@@ -73,6 +94,13 @@ src/
 
 The main page layout is assembled in `src/App.vue`, where each landing-page section is imported as a separate component.
 
+## Styling Notes
+
+- Global design tokens are stored in `src/assets/main.css` under `:root`.
+- Use `var(--color-...)` for direct color usage.
+- For alpha colors, use RGB-channel variables with `rgba(var(--color-...-rgb), alpha)`.
+  - Example: `rgba(var(--color-primary-rgb), 0.15)`
+
 ## Recommended Environment
 
 - Node.js: `^20.19.0 || >=22.12.0`
@@ -82,5 +110,6 @@ The main page layout is assembled in `src/App.vue`, where each landing-page sect
 ## Notes
 
 - The project uses `vue-tsc` for type checking.
-- Styling is configured with Tailwind CSS and PostCSS.
+- Styling is configured with SCSS, PostCSS, and global CSS variables.
+- The contact form uses Vuelidate for client-side validation; successful submit currently shows a temporary alert placeholder.
 - The app is set up with Vite for fast local development and production builds.

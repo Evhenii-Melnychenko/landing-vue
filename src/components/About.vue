@@ -1,11 +1,42 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n({ useScope: 'global' });
 
 const stats = [
-  { max: 22, suffix: '+', label: 'Years of Experience' },
-  { max: 7,  suffix: '',  label: 'Counties Served' },
-  { max: 0,  suffix: '%', label: 'Financing Available' },
-  { max: 100, suffix: '%', label: 'Satisfaction Focus' },
+  { id: 'experience', max: 22, suffix: '+', labelKey: 'whyChooseUs.stats.experience' },
+  { id: 'counties', max: 7,  suffix: '',  labelKey: 'whyChooseUs.stats.counties' },
+  { id: 'financing', max: 0,  suffix: '%', labelKey: 'whyChooseUs.stats.financing' },
+  { id: 'satisfaction', max: 100, suffix: '%', labelKey: 'whyChooseUs.stats.satisfaction' },
+];
+
+const features = [
+  {
+    id: 'first',
+    titleKey: 'whyChooseUs.features.first.title',
+    descriptionKey: 'whyChooseUs.features.first.description',
+  },
+  {
+    id: 'second',
+    titleKey: 'whyChooseUs.features.second.title',
+    descriptionKey: 'whyChooseUs.features.second.description',
+  },
+  {
+    id: 'third',
+    titleKey: 'whyChooseUs.features.third.title',
+    descriptionKey: 'whyChooseUs.features.third.description',
+  },
+  {
+    id: 'fourth',
+    titleKey: 'whyChooseUs.features.fourth.title',
+    descriptionKey: 'whyChooseUs.features.fourth.description',
+  },
+  {
+    id: 'fifth',
+    titleKey: 'whyChooseUs.features.fifth.title',
+    descriptionKey: 'whyChooseUs.features.fifth.description',
+  },
 ];
 
 const counters = ref(stats.map(() => 0));
@@ -56,41 +87,21 @@ onUnmounted(() => {
     <div class="container">
       <div class="about-content">
         <div class="about-text">
-            <h2>Why Choose Us?</h2>
-            <p><span class="highlight">Since our inception in 2000</span>, Company, Inc. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores dolore quibusdam quia odit, molestiae maxime!</p>
+            <h2>{{ t('whyChooseUs.title') }}</h2>
+            <p><span class="highlight">{{ t('whyChooseUs.highlight') }}</span>{{ t('whyChooseUs.description') }}</p>
             
             <ul class="features-list">
-                <li>
+                <li v-for="feature in features" :key="feature.id">
                   <i class="pi pi-check"></i>
-                  <strong>Feature first:</strong>
-                  <span>Lorem ipsum dolor sit, amet consectetur adipisicing.</span>
-                </li>
-                <li>
-                  <i class="pi pi-check"></i>
-                  <strong>Feature second:</strong>
-                  <span>Lorem ipsum dolor sit, amet consectetur adipisicing.</span>
-                </li>
-                <li>
-                  <i class="pi pi-check"></i>
-                  <strong>Feature third:</strong>
-                  <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
-                </li>
-                <li>
-                  <i class="pi pi-check"></i>
-                  <strong>Feature fourth:</strong>
-                  <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
-                </li>
-                <li>
-                  <i class="pi pi-check"></i>
-                  <strong>Feature fifth:</strong>
-                  <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+                  <strong>{{ t(feature.titleKey) }}</strong>
+                  <span>{{ t(feature.descriptionKey) }}</span>
                 </li>
             </ul>
         </div>
         <div class="stats-grid" ref="statsRef">
-            <div class="stat-card" v-for="(stat, i) in stats" :key="i">
+            <div class="stat-card" v-for="(stat, i) in stats" :key="stat.id">
               <span class="stat-number">{{ counters[i] }}{{ stat.suffix }}</span>
-              <span class="stat-label">{{ stat.label }}</span>
+              <span class="stat-label">{{ t(stat.labelKey) }}</span>
             </div>
         </div>
       </div>
@@ -130,7 +141,7 @@ onUnmounted(() => {
   background: var(--color-white);
   padding: 50px 40px;
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(var(--color-primary), 0.15);
+  box-shadow: 0 15px 40px rgba(var(--color-primary-rgb), 0.15);
   border-left: 6px solid var(--color-primary);
 
   h2 {

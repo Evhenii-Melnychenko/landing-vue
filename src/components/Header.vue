@@ -1,17 +1,25 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 const activeSection = ref('hero');
 
+const { locale, t } = useI18n({ useScope: 'global' });
+const currentLocale = computed(() => locale.value);
+
 const navLinks = [
-  { href: 'hero', label: 'Home' },
-  { href: 'about-our-company', label: 'About' },
-  { href: 'services', label: 'Services' },
-  { href: 'about', label: 'Why Choose Us' },
-  { href: 'contact', label: 'Contact' },
+  { href: 'hero', labelKey: 'header.nav.home' },
+  { href: 'about-our-company', labelKey: 'header.nav.aboutCompany' },
+  { href: 'services', labelKey: 'header.nav.services' },
+  { href: 'about', labelKey: 'header.nav.whyChooseUs' },
+  { href: 'contact', labelKey: 'header.nav.contact' },
 ];
+
+function setLocale(lang) {
+  locale.value = lang;
+}
 
 function toggleMobileMenu() {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
@@ -68,7 +76,7 @@ onUnmounted(() => {
               <ul class="nav">
                   <li v-for="link in navLinks" :key="link.href">
                       <a :href="'#' + link.href" :class="{ active: activeSection === link.href }" @click.prevent="scrollToSection(link.href)">
-                        {{ link.label }}
+                        {{ t(link.labelKey) }}
                       </a>
                   </li>
               </ul>
@@ -80,11 +88,16 @@ onUnmounted(() => {
               <span></span>
           </div>
 
+          <div class="language-switcher" aria-label="Language switcher">
+            <button type="button" :class="{ active: currentLocale === 'pl' }" @click="setLocale('pl')">PL</button>
+            <button type="button" :class="{ active: currentLocale === 'en' }" @click="setLocale('en')">EN</button>
+          </div>
+
           <div class="mobile-menu" :class="{ active: isMobileMenuOpen }">
               <ul class="nav">
                   <li v-for="link in navLinks" :key="link.href">
                       <a :href="'#' + link.href" :class="{ active: activeSection === link.href }" @click.prevent="scrollToSection(link.href); closeMobileMenu()">
-                        {{ link.label }}
+                        {{ t(link.labelKey) }}
                       </a>
                   </li>
               </ul>
@@ -99,16 +112,16 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(var(--color-white), 0.95);
+  background: rgba(var(--color-white-rgb), 0.95);
   backdrop-filter: blur(20px);
   z-index: 1000;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(var(--color-primary), 0.1);
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.1);
   transition: all 0.3s ease;
 
   &.scrolled {
-    background: rgba(var(--color-white), 0.98);
-    box-shadow: 0 5px 25px rgba(var(--color-primary), 0.1);
+    background: rgba(var(--color-white-rgb), 0.98);
+    box-shadow: 0 5px 25px rgba(var(--color-primary-rgb), 0.1);
   }
 }
 
@@ -164,7 +177,7 @@ onUnmounted(() => {
 
       &:hover {
         color: var( --color-primary);
-        background: rgba(var(--color-primary), 0.1);
+        background: rgba(var(--color-primary-rgb), 0.1);
         transform: translateY(-2px);
       }
 
@@ -172,6 +185,35 @@ onUnmounted(() => {
         color: var(--color-white);
         background: var( --color-primary);
       }
+    }
+  }
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,87,27,0.22);
+  background: rgba(255,255,255,0.85);
+
+  button {
+    border: 0;
+    border-radius: 999px;
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--color-primary);
+    transition: all 0.25s ease;
+
+    &.active {
+      background: var(--color-primary);
+      color: var(--color-white);
+      box-shadow: 0 4px 12px rgba(0,87,27,0.25);
     }
   }
 }
@@ -218,10 +260,10 @@ onUnmounted(() => {
   right: 0;
   bottom: 0;
   width: min(85vw, 340px);
-  background: rgba(var(--color-white), 0.98);
+  background: rgba(var(--color-white-rgb), 0.98);
   backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(var(--color-primary), 0.1);
-  box-shadow: -10px 0 30px rgba(var(--color-black), 0.12);
+  border-left: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  box-shadow: -10px 0 30px rgba(var(--color-black-rgb), 0.12);
   transform: translateX(100%);
   transition: transform 0.35s ease;
   z-index: 100;
@@ -248,6 +290,7 @@ onUnmounted(() => {
 @media (max-width: 968px) {
   .header-content {
     padding: 0 15px;
+    position: relative;
   }
   
   nav .nav {
@@ -262,6 +305,14 @@ onUnmounted(() => {
   
   .mobile-menu-toggle {
     display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .language-switcher {
+    margin-left: auto;
+    margin-right: 8px;
   }
   
   .hero h1 {

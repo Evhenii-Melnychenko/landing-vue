@@ -1,0 +1,149 @@
+{
+    "header": {
+        "nav": {
+            "home": "Home",
+            "aboutCompany": "About",
+            "services": "Services",
+            "whyChooseUs": "Why Choose Us",
+            "contact": "Contact"
+        }
+    },
+    "hero": {
+        "title": "Welcome to our company",
+        "subtitle": "We are here to help you achieve your dreams.",
+        "cta": "Contact us"
+    },
+    "about": {
+        "title": "About our company",
+        "description_main": "First description paragraph.",
+        "description_secondary": "Second description paragraph."
+    },
+    "whyChooseUs": {
+        "title": "Why Choose Us?",
+        "highlight": "Since our inception in 2000",
+        "description": ", our company has focused on reliable service, practical solutions, and long-term customer trust.",
+        "features": {
+            "first": {
+                "title": "Experience you can rely on:",
+                "description": "We combine proven workflows with a strong understanding of client needs."
+            },
+            "second": {
+                "title": "Clear communication:",
+                "description": "You always know the next step, timeline, and scope of work."
+            },
+            "third": {
+                "title": "Flexible approach:",
+                "description": "We adapt our services to each project instead of forcing a generic package."
+            },
+            "fourth": {
+                "title": "Quality and precision:",
+                "description": "We pay attention to details that affect durability, safety, and final results."
+            },
+            "fifth": {
+                "title": "Customer-first support:",
+                "description": "Our team stays available before, during, and after delivery."
+            }
+        },
+        "stats": {
+            "experience": "Years of Experience",
+            "counties": "Counties Served",
+            "financing": "Financing Available",
+            "satisfaction": "Satisfaction Focus"
+        }
+    },
+    "services": {
+        "title": "Our Services",
+        "items": {
+            "first": {
+                "title": "Planning and consultation",
+                "description": "We help define the right scope, timeline, and next steps before work begins."
+            },
+            "second": {
+                "title": "Delivery and logistics",
+                "description": "We coordinate reliable transport and organized delivery for each project stage."
+            },
+            "third": {
+                "title": "Technical implementation",
+                "description": "Our team handles execution with attention to quality, safety, and efficiency."
+            },
+            "fourth": {
+                "title": "Business support",
+                "description": "We support companies with tailored solutions aligned to operational needs."
+            },
+            "fifth": {
+                "title": "Facility services",
+                "description": "We provide structured service options for buildings, sites, and ongoing maintenance."
+            },
+            "sixth": {
+                "title": "Customer care",
+                "description": "You stay in direct contact with our team throughout the process."
+            }
+        }
+    },
+    "testimonial": {
+        "author": "What our clients say",
+        "quote": "This company is amazing! They helped me achieve my goals."
+    },
+    "specialOffers": {
+        "title": "Special Offers",
+        "cta": "Call to us",
+        "items": {
+            "first": {
+                "title": "Free initial consultation",
+                "description": "Talk to us about your needs and get a clear recommendation before making any commitment."
+            },
+            "second": {
+                "title": "Custom service packages",
+                "description": "We prepare tailored offers for companies and individual clients based on scope and budget."
+            },
+            "third": {
+                "title": "Priority support",
+                "description": "Selected offers include faster response times and direct contact with our team."
+            }
+        }
+    },
+    "cta": {
+        "title": "Let us help you get started",
+        "description": "Tell us what you need and we will prepare the right solution, timeline, and next steps.",
+        "primary": "Schedule Free Consultation",
+        "secondary": "Call (123) 456-789"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "description": "We will answer your questions, help you choose a service, and prepare an offer.",
+        "form_title": "Send Us a Message",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "phone_number": "Phone Number",
+        "email_address": "Email Address",
+        "topic": "Topic",
+        "select_topic": "Select a Topic",
+        "option1": "Option 1",
+        "option2": "Option 2",
+        "option3": "Option 3",
+        "option4": "Option 4",
+        "option5": "Option 5",
+        "option6": "Option 6",
+        "other": "Other",
+        "your_message": "Your Message",
+        "enter_your_message": "Enter your message here...",
+        "send": "Send",
+        "visit_our_office": "Visit Our Office",
+        "address_placeholder": "Address Placeholder",
+        "call_us_today": "Call Us Today",
+        "phone_number_placeholder": "(123) 456-789",
+        "email_us": "Email Us",
+        "email_address_placeholder": "name@gmail.com",
+        "validation": {
+            "required": "This field is required.",
+            "min_name": "Please enter at least 2 characters.",
+            "min_phone": "Please enter a valid phone number.",
+            "invalid_email": "Please enter a valid email address.",
+            "submit_success": "Form submitted successfully."
+        }
+    },
+    "footer": {
+        "company_name": "Company's Name",
+        "all_rights_reserved": "All rights reserved."
+    }
+}

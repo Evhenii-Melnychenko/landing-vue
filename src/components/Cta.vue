@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n({ useScope: 'global' });
+
 function scrollToSection(id) {
   const header = document.getElementById('header');
   const target = document.getElementById(id);
@@ -16,11 +20,11 @@ function scrollToSection(id) {
     <section class="cta-section" id="get-started">
         <div class="container">
             <div class="cta-content">
-                <h2>Title of Section</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ex omnis inventore veritatis reiciendis magnam!</p>
+                <h2>{{ t('cta.title') }}</h2>
+                <p>{{ t('cta.description') }}</p>
                 <div class="cta-buttons">
-                    <a href="#contact" class="cta-primary" @click.prevent="scrollToSection('contact')">Schedule Free Consultation</a>
-                    <a href="tel:123456789" class="btn-secondary">Call (123) 456-789</a>
+                    <a href="#contact" class="cta-primary" @click.prevent="scrollToSection('contact')">{{ t('cta.primary') }}</a>
+                    <a href="tel:123456789" class="btn-secondary">{{ t('cta.secondary') }}</a>
                 </div>
             </div>
         </div>
@@ -35,7 +39,7 @@ function scrollToSection(id) {
     position: relative;
 
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -52,8 +56,8 @@ function scrollToSection(id) {
     background: var(--color-white);
     padding: 60px 40px;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(var(--color-primary), 0.15);
-    border: 2px solid rgba(var(--color-primary), 0.1);
+    box-shadow: 0 20px 50px rgba(var(--color-primary-rgb), 0.15);
+    border: 2px solid rgba(var(--color-primary-rgb), 0.1);
 
     h2 {
         font-size: 2.8rem;
@@ -103,7 +107,7 @@ function scrollToSection(id) {
     font-weight: 700;
     text-decoration: none;
     border-radius: 50px;
-    box-shadow: 0 8px 25px rgba(var(--color-black), 0.2);
+    box-shadow: 0 8px 25px rgba(var(--color-black-rgb), 0.2);
     transition: all 0.3s ease;
     animation: fadeInUp 0.8s ease-out 0.4s both;
     text-transform: uppercase;
@@ -111,7 +115,7 @@ function scrollToSection(id) {
 
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(var(--color-black), 0.3);
+        box-shadow: 0 12px 35px rgba(var(--color-black-rgb), 0.3);
         background: var(--color-white);
     }
 }

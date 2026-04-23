@@ -1,0 +1,149 @@
+{
+    "header": {
+        "nav": {
+            "home": "Start",
+            "aboutCompany": "O firmie",
+            "services": "Usługi",
+            "whyChooseUs": "Dlaczego my",
+            "contact": "Kontakt"
+        }
+    },
+    "hero": {
+        "title": "Witamy w naszej firmie",
+        "subtitle": "Jesteśmy tutaj, aby pomóc Ci osiągnąć Twoje marzenia.",
+        "cta": "Skontaktuj się"
+    },
+    "about": {
+        "title": "O naszej firmie",
+        "description_main": "Pierwszy akapit opisu.",
+        "description_secondary": "Drugi akapit opisu."
+    },
+    "whyChooseUs": {
+        "title": "Dlaczego my?",
+        "highlight": "Od początku naszej działalności w 2000 roku",
+        "description": ", koncentrujemy się na rzetelnej obsłudze, praktycznych rozwiązaniach i długofalowym zaufaniu klientów.",
+        "features": {
+            "first": {
+                "title": "Doświadczenie, na którym można polegać:",
+                "description": "Łączymy sprawdzone procesy z dobrym zrozumieniem potrzeb klientów."
+            },
+            "second": {
+                "title": "Jasna komunikacja:",
+                "description": "Zawsze wiesz, jaki jest kolejny krok, termin i zakres prac."
+            },
+            "third": {
+                "title": "Elastyczne podejście:",
+                "description": "Dopasowujemy usługi do projektu zamiast narzucać jeden schemat działania."
+            },
+            "fourth": {
+                "title": "Jakość i precyzja:",
+                "description": "Dbamy o szczegóły, które wpływają na trwałość, bezpieczeństwo i efekt końcowy."
+            },
+            "fifth": {
+                "title": "Wsparcie skoncentrowane na kliencie:",
+                "description": "Nasz zespół pozostaje dostępny przed realizacją, w jej trakcie i po zakończeniu prac."
+            }
+        },
+        "stats": {
+            "experience": "Lat doświadczenia",
+            "counties": "Obsługiwanych powiatów",
+            "financing": "Dostępnego finansowania",
+            "satisfaction": "Nastawienia na satysfakcję"
+        }
+    },
+    "services": {
+        "title": "Nasze usługi",
+        "items": {
+            "first": {
+                "title": "Planowanie i konsultacje",
+                "description": "Pomagamy określić właściwy zakres, harmonogram i kolejne kroki jeszcze przed rozpoczęciem prac."
+            },
+            "second": {
+                "title": "Dostawa i logistyka",
+                "description": "Koordynujemy sprawny transport i uporządkowaną dostawę na każdym etapie realizacji."
+            },
+            "third": {
+                "title": "Realizacja techniczna",
+                "description": "Nasz zespół prowadzi wykonanie z naciskiem na jakość, bezpieczeństwo i efektywność."
+            },
+            "fourth": {
+                "title": "Wsparcie dla firm",
+                "description": "Wspieramy firmy rozwiązaniami dopasowanymi do ich potrzeb operacyjnych."
+            },
+            "fifth": {
+                "title": "Obsługa obiektów",
+                "description": "Oferujemy uporządkowane pakiety usług dla budynków, obiektów i bieżącego utrzymania."
+            },
+            "sixth": {
+                "title": "Opieka nad klientem",
+                "description": "Pozostajesz w bezpośrednim kontakcie z naszym zespołem przez cały proces współpracy."
+            }
+        }
+    },
+    "testimonial": {
+        "author": "Co mówią nasi klienci",
+        "quote": "Ta firma jest niesamowita! Pomogli mi osiągnąć moje cele."
+    },
+    "specialOffers": {
+        "title": "Oferty specjalne",
+        "cta": "Zadzwoń do nas",
+        "items": {
+            "first": {
+                "title": "Bezpłatna konsultacja wstępna",
+                "description": "Porozmawiaj z nami o swoich potrzebach i otrzymaj jasną rekomendację bez zobowiązań."
+            },
+            "second": {
+                "title": "Indywidualne pakiety usług",
+                "description": "Przygotowujemy dopasowane oferty dla firm i klientów indywidualnych zgodnie z zakresem i budżetem."
+            },
+            "third": {
+                "title": "Priorytetowe wsparcie",
+                "description": "Wybrane oferty obejmują szybszy czas odpowiedzi i bezpośredni kontakt z naszym zespołem."
+            }
+        }
+    },
+    "cta": {
+        "title": "Pomożemy Ci zacząć",
+        "description": "Powiedz nam, czego potrzebujesz, a przygotujemy odpowiednie rozwiązanie, harmonogram i kolejne kroki.",
+        "primary": "Umów bezpłatną konsultację",
+        "secondary": "Zadzwoń: (123) 456-789"
+    },
+    "contact": {
+        "title": "Skontaktuj się z nami",
+        "description": "Odpowiemy na pytania, pomożemy dobrać usługę i przygotujemy ofertę.",
+        "form_title": "Napisz do nas",
+        "first_name": "Imię",
+        "last_name": "Nazwisko",
+        "phone_number": "Numer telefonu",
+        "email_address": "Adres e-mail",
+        "topic": "Temat",
+        "select_topic": "Wybierz temat",
+        "option1": "Opcja 1",
+        "option2": "Opcja 2",
+        "option3": "Opcja 3",
+        "option4": "Opcja 4",
+        "option5": "Opcja 5",
+        "option6": "Opcja 6",
+        "other": "Inne",
+        "your_message": "Twoja wiadomość",
+        "enter_your_message": "Wpisz swoją wiadomość tutaj...",
+        "send": "Wyślij",
+        "visit_our_office": "Odwiedź nasz biuro",
+        "address_placeholder": "Adres placeholder",
+        "call_us_today": "Zadzwoń do nas dziś",
+        "phone_number_placeholder": "(123) 456-789",
+        "email_us": "Napisz do nas",
+        "email_address_placeholder": "name@gmail.com",
+        "validation": {
+            "required": "To pole jest wymagane.",
+            "min_name": "Wpisz co najmniej 2 znaki.",
+            "min_phone": "Wpisz poprawny numer telefonu.",
+            "invalid_email": "Wpisz poprawny adres e-mail.",
+            "submit_success": "Formularz został wysłany poprawnie."
+        }
+    },
+    "footer": {
+        "company_name": "Nazwa firmy",
+        "all_rights_reserved": "Wszelkie prawa zastrzeżone."
+    }
+}

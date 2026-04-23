@@ -1,16 +1,27 @@
+<script setup>
+  import { useI18n } from 'vue-i18n'
+
+  const { t } = useI18n({ useScope: 'global' })
+</script>
+
 <template>
   <section class="about-our-company" id="about-our-company">
         <div class="container">
             <div class="about-our-company-content">
-                <h2>About our company</h2>
-                <p class="about-description-main">At <strong>our company</strong>, Lorem ipsum dolor sit amet. <strong>Lorem, ipsum dolor</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, ipsa autem. Animi error recusandae repudiandae? <span class="counties-highlight">city1, city2, city3, city4, city5, city6, city7</span>.</p>
-                <p class="about-description-secondary">We are not just a company – we help you <span class="dreams-highlight">Lorem ipsum dolor sit amet</span> with <span class="dreams-highlight">Lorem, ipsum dolor</span> Lorem, ipsum dolor.</p>
+                <h2>{{ t('about.title') }}</h2>
+                <p class="about-description-main">
+                  {{ t('about.description_main') }}
+                </p>
+                <p class="about-description-secondary">
+                  {{ t('about.description_secondary') }}
+                </p>
             </div>
         </div>
     </section>
 </template>
 
 <style lang="scss" scoped>
+
 .about-our-company {
   padding: 100px 0;
   background: linear-gradient(135deg, var(--color-white) 0%, #f8fff8 100%);
@@ -36,7 +47,7 @@
     position: relative;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -15px;
       left: 50%;
@@ -57,14 +68,14 @@
   background: var(--color-white);
   padding: 60px 50px;
   border-radius: 25px;
-  box-shadow: 0 20px 60px rgba(0, 87, 27, 0.15);
-  border: 3px solid rgba(0, 87, 27, 0.1);
+  box-shadow: 0 20px 60px rgba(0,87,27,0.15);
+  border: 3px solid rgba(0,87,27,0.1);
 }
 
 .about-description-main {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: var( --color-secondary);
+  color: #333333;
   margin-bottom: 30px;
   text-align: justify;
 }
@@ -77,24 +88,10 @@
   padding: 25px;
   background: linear-gradient(
     135deg,
-    rgba(0,87,27,0.05) 0%,
-    rgba(0,123,36,0.08) 100%
+    rgba(0,87,27, 0.05) 0%,
+    
   );
   border-radius: 15px;
-  border-left: 5px solid var( --color-primary);
-}
-
-.counties-highlight {
-  background: linear-gradient(120deg, var( --color-primary) 0%, var( --color-primary-light) 100%);
-  color: var(--color-white);
-  padding: 4px 12px;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-.dreams-highlight {
-  color: var( --color-primary);
-  font-weight: 700;
-  font-size: 1.1em;
+  border-left: 5px solid var(--color-primary);
 }
 </style>

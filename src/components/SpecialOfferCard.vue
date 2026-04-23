@@ -31,14 +31,14 @@ const props = defineProps({
   backdrop-filter: blur(10px);
   padding: 40px 30px;
   border-radius: 20px;
-  border: 1px solid rgba(var(--color-white), 0.2);
+  border: 1px solid rgba(var(--color-white-rgb), 0.2);
   transition: all 0.3s ease;
   position: relative;
 
   &:hover {
     transform: translateY(-10px);
     background: var(--color-primary-light);
-    box-shadow: 0 20px 40px rgba(var(--color-black), 0.3);
+    box-shadow: 0 20px 40px rgba(var(--color-black-rgb), 0.3);
   }
 
   h3 {

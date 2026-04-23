@@ -1,9 +1,15 @@
+<script setup>
+  import { useI18n } from 'vue-i18n'
+
+  const { t } = useI18n({ useScope: 'global' })
+</script>
+
 <template>
    <section class="testimonial">
         <div class="container">
             <div class="testimonial-content">
-                <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, nisi consectetur cupiditate optio culpa eos adipisci quisquam repudiandae minus itaque quae impedit quo reiciendis consequatur.</p>
-                <p class="testimonial-author">— Author Name</p>
+                <p class="testimonial-text">{{ t('testimonial.quote') }}</p>
+                <p class="testimonial-author">— {{ t('testimonial.author') }}</p>
             </div>
         </div>
     </section>

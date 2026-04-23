@@ -1,45 +1,54 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
 import ServiceCard from './ServiceCard.vue';
+
+const { t } = useI18n({ useScope: 'global' });
 
 const services = [
     {
-        title: 'Title of Service',
-        description: 'Description of the service goes here.',
+        id: 'first',
+        titleKey: 'services.items.first.title',
+        descriptionKey: 'services.items.first.description',
         iconClass: 'pi pi-hourglass',
         imageSrc: '',
         imageAlt: '',
     },
     {
-        title: 'Title of Service',
-        description: 'Description of the service goes here.',
+        id: 'second',
+        titleKey: 'services.items.second.title',
+        descriptionKey: 'services.items.second.description',
         iconClass: 'pi pi-truck',
         imageSrc: '',
         imageAlt: '',
     },
     {
-        title: 'Title of Service',
-        description: 'Description of the service goes here.',
+        id: 'third',
+        titleKey: 'services.items.third.title',
+        descriptionKey: 'services.items.third.description',
         iconClass: 'pi pi-cog',
         imageSrc: '',
         imageAlt: '',
     },
     {
-        title: 'Title of Service',
-        description: 'Description of the service goes here.',
+        id: 'fourth',
+        titleKey: 'services.items.fourth.title',
+        descriptionKey: 'services.items.fourth.description',
         iconClass: 'pi pi-briefcase',
         imageSrc: '',
         imageAlt: '',
     },
     {
-        title: 'Title of Service',
-        description: 'Description of the service goes here.',
+        id: 'fifth',
+        titleKey: 'services.items.fifth.title',
+        descriptionKey: 'services.items.fifth.description',
         iconClass: 'pi pi-building',
         imageSrc: '',
         imageAlt: '',
     },
     {
-        title: 'Title of Service',
-        description: 'Description of the service goes here.',
+        id: 'sixth',
+        titleKey: 'services.items.sixth.title',
+        descriptionKey: 'services.items.sixth.description',
         iconClass: 'pi pi-users',
         imageSrc: '',
         imageAlt: '',
@@ -50,13 +59,13 @@ const services = [
 <template>
 <section class="services" id="services">
     <div class="container">
-        <h2 class="section-title">Our Services</h2>
+        <h2 class="section-title">{{ t('services.title') }}</h2>
         <div class="services-grid">
             <ServiceCard
                 v-for="service in services"
-                :key="`${service.title}-${service.iconClass}`"
-                :title="service.title"
-                :description="service.description"
+                :key="service.id"
+                :title="t(service.titleKey)"
+                :description="t(service.descriptionKey)"
                 :icon-class="service.iconClass"
                 :image-src="service.imageSrc"
                 :image-alt="service.imageAlt"
@@ -69,7 +78,7 @@ const services = [
 <style  lang="scss" scoped>
 .services {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f0f9f0 0%, #e8f8e8 50%, var(--color-white) 100%);
+    background: linear-gradient(135deg, #f0f9f0 0%, #7a98eb 50%, var(--color-white) 100%);
     position: relative;
 
     &::before {
